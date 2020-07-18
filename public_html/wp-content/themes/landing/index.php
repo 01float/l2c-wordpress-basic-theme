@@ -1,17 +1,12 @@
-<!doctype html>
-<html>
-	<head>
-		<title>
-			
-		</title>
-		<!-- Bootstrap core CSS -->
-		 <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link href="style.css" rel="stylesheet">
-	</head>
-	<body>
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-			<img src="https://via.placeholder.com/50" class="rounded-circle mr-5">
+<?php /* Template Name: Landing Page Tutorial Theme */ ?>
+
+<?php
+
+	get_header();
+	$has_features_sidebar = is_active_sidebar( 'features' );
+
+?>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 			<div>
 				<a class="navbar-brand" href="#">Lorem Ipsum</a>
 				<a class="navbar-brand" href="#">Lorem Ipsum</a>
@@ -96,28 +91,20 @@
 				</div>
 				<div class="row justify-content-center">
 	          		<div class="col-8">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum, ligula egestas mollis iaculis, nulla nunc tincidunt risus, quis sodales metus nisi ac elit. Cras convallis vehicula sapien sit amet finibus. Phasellus turpis metus, hendrerit non consequat ac, scelerisque at lacus. Etiam in ornare erat. Donec aliquam libero ut sagittis venenatis. Nam ullamcorper felis at purus commodo, vitae faucibus velit tincidunt. Duis non nunc vestibulum, tristique felis nec, dignissim ante. Suspendisse ex leo, facilisis eu massa ac, gravida commodo eros. Pellentesque rutrum neque orci, ut porttitor nulla consequat non. Duis blandit, risus quis mollis vulputate, ligula turpis suscipit felis, vel fermentum neque neque eu dui.
+	          		<?php 
+						if ( have_posts() ) : 
+						    while ( have_posts() ) : the_post(); 
+								the_title( '<h1>', '</h1>' ); 
+						        the_content();
+						    endwhile; 
+						endif; 
+					?>
 
-							Fusce lacinia pharetra purus in accumsan. Aliquam eu magna egestas, aliquet ligula ac, imperdiet lorem. Morbi pulvinar, erat nec ultrices dignissim, erat neque tempus mi, id vulputate erat nibh ut mi. Praesent quam augue, molestie a interdum vel, euismod at leo. Cras volutpat quis enim vitae efficitur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce lacus nunc, faucibus sed erat vitae, elementum congue leo. Duis sapien sem, posuere ut quam eu, suscipit tincidunt urna. Nam vel posuere enim. Nulla ac dictum sapien. Donec scelerisque nisl nec mollis facilisis. Nulla rhoncus vitae justo non maximus. 
 	          		</div>
           		</div>	
 			</div>
-			<footer class="container border-top mt-5">
-				<div class="row">
-		          <div class="col p-2">
-		            <h4>Stopka #1</h4>
-		            <p>
-		            	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et erat ac felis ultrices accumsan. Donec sit amet urna congue tellus ultricies ultricies eget eu risus. Integer risus lorem, pellentesque ut eros ac, egestas dignissim libero. Praesent tristique diam non eleifend aliquam.  
-		            </p>
-		          </div>
-		          <div class="col p-2">
-		            <h4>Stopka #2</h4>
-		            <p>
-		            	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et erat ac felis ultrices accumsan. Donec sit amet urna congue tellus ultricies ultricies eget eu risus. Integer risus lorem, pellentesque ut eros ac, egestas dignissim libero. Praesent tristique diam non eleifend aliquam.  
-		            </p>
-		          </div>
-		        </div>
-	    	</footer>
-		</main>
-	</body>
-</html>
+			<?php
+
+	get_footer();
+
+?>

@@ -32,5 +32,20 @@ function landing_sidebars() {
         )
     );
 
-    /* Repeat register_sidebar() code for additional sidebars. */
+	register_sidebar(
+        array(
+            'id'            => 'features',
+            'name'          => __( 'Features' ),
+            'description'   => __( 'Sidebar listy wyróżniających cech produktu.' ),
+            'before_widget' => '
+            	<div id="%1$s" class="widget %2$s d-flex flex-row mb-5 align-items-start">
+            		<div class="mr-5">
+            			<img src="https://via.placeholder.com/150" class="rounded-circle feature-img">
+        			</div>
+        			<div>',
+            'after_widget'  => '</div></div>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
 }

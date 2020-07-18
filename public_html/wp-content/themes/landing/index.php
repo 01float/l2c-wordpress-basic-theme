@@ -1,7 +1,9 @@
 <?php /* Template Name: Landing Page Tutorial Theme */ ?>
+
 <?php
 
 	get_header();
+	$has_features_sidebar = is_active_sidebar( 'features' );
 
 ?>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -23,7 +25,7 @@
 				      	</div>
 				        <div class="row justify-content-center">
 				          <div class="col-md-8">
-				            <form class="position-relative d-block">
+				            <form class="position-relative d-block" method="post" action="<?php echo admin_url('admin-ajax.php'); ?>">
 				              <div class="form-group">
 				                <input name="course-name" id="course-name-1" type="text" class="form-control form-control-lg" placeholder="Name">
 				              </div>
@@ -48,44 +50,13 @@
 				</div>			
 			</div>
 			<div class="container">
-				<div class="row justify-content-center">
-	          		<div class="col-8">
-	          			<div class=" d-flex flex-row mb-5 align-items-start">
-				            <img src="https://via.placeholder.com/150" class="rounded-circle">
-							<div class="pl-5">
-								<h2>Nagłówek #1</h2>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et erat ac felis ultrices accumsan. Donec sit amet urna congue tellus ultricies ultricies eget eu risus.
-								</p>
-							</div>
-						</div>
-	      			</div>
-				</div>
-				<div class="row justify-content-center">
-	          		<div class="col-8">
-	          			<div class=" d-flex flex-row mb-5 align-items-start">
-				            <img src="https://via.placeholder.com/150" class="rounded-circle">
-							<div class="pl-5">
-								<h2>Nagłówek #1</h2>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et erat ac felis ultrices accumsan. Donec sit amet urna congue tellus ultricies ultricies eget eu risus.
-								</p>
-							</div>
-						</div>
-	      			</div>
-				</div>
-				<div class="row justify-content-center">
-	          		<div class="col-8">
-	          			<div class=" d-flex flex-row mb-5 align-items-start">
-				            <img src="https://via.placeholder.com/150" class="rounded-circle">
-							<div class="pl-5">
-								<h2>Nagłówek #1</h2>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et erat ac felis ultrices accumsan. Donec sit amet urna congue tellus ultricies ultricies eget eu risus.
-								</p>
-							</div>
-						</div>
-	      			</div>
+				<?php if($has_features_sidebar) { ?>
+					<div class="row justify-content-center">
+		          		<div class="col-8 pl-5">
+							<?php dynamic_sidebar( 'features' ); ?>
+		      			</div>
+					</div>
+				<?php } ?>
 				</div>
 				<div class="row justify-content-center">
 	          		<div class="col-8">
@@ -97,7 +68,7 @@
 						    endwhile; 
 						endif; 
 					?>
-						
+
 	          		</div>
           		</div>	
 			</div>

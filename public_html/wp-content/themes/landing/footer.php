@@ -1,19 +1,26 @@
-<footer class="container border-top mt-5">
-				<div class="row">
-		          <div class="col p-2">
-		            <h4>Stopka #1</h4>
-		            <p>
-		            	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et erat ac felis ultrices accumsan. Donec sit amet urna congue tellus ultricies ultricies eget eu risus. Integer risus lorem, pellentesque ut eros ac, egestas dignissim libero. Praesent tristique diam non eleifend aliquam.  
-		            </p>
-		          </div>
-		          <div class="col p-2">
-		            <h4>Stopka #2</h4>
-		            <p>
-		            	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et erat ac felis ultrices accumsan. Donec sit amet urna congue tellus ultricies ultricies eget eu risus. Integer risus lorem, pellentesque ut eros ac, egestas dignissim libero. Praesent tristique diam non eleifend aliquam.  
-		            </p>
-		          </div>
+
+<?php
+	$has_footer_sidebar_1 = is_active_sidebar( 'stopka-1' );
+	$has_footer_sidebar_2 = is_active_sidebar( 'stopka-2' );
+?>	
+
+			<footer class="container border-top mt-5">
+				<div class="row">	
+				
+					<?php if ($has_footer_sidebar_1) { ?>
+
+			          <div class="col">
+			            <?php dynamic_sidebar( 'stopka-1' ); ?>
+			          </div>
+		          	<?php } ?>
+		          	<?php if ($has_footer_sidebar_2) { ?>
+			          <div class="col">
+			            <?php dynamic_sidebar( 'stopka-2' ); ?>
+			          </div>
+		          	<?php } ?>
 		        </div>
 	    	</footer>
 		</main>
 	</body>
 </html>
+
